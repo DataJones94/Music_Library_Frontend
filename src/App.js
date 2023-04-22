@@ -1,20 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import MusicTable from './Components/MusicTable/MusicTable';
+import AddAsong from './Components/AddAsong/AddAsong';
 
 
 function App() { 
-  const [songs, setSongs] = useState([{title: "Just The Way You Are", album: "DooWaps and Hooligans", artist: "Bruno Mars", genre: "Pop", release_date: "12-04-2010"}])
+  const [songs, setSongs] = useState([])
 
   
   useEffect(() => {
     getAllSongs();
-    addAsong();
+    
     {/*deleted console.log("Hello World!") */}
     
    
-
   },[]);
+
 
   
   async function getAllSongs(){
@@ -23,20 +24,40 @@ function App() {
     setSongs(response.data)
   }
 
-    async function addAsong(){
-      const response = await axios.post('http://127.0.0.1:8000/api/music/');
+  async function addNewEntry(newSong){
+      let response = await axios.post('http://127.0.0.1:8000/api/music/', newSong);
+      if (response.status === 201){
+        await addNewEntry()
+      }
       console.log (response.data);
       setSongs(response.data)
+      
+  }
 
-    }
+  // async function SearchSongs(songs,)
+  // let FoundSong = songs.filter(song) => songs.includes()
+
   
 
 
   return (
     <div>
       <button onClick={() => getAllSongs()}>Get All Songs</button>
-      <MusicTable parentEntries= {songs}/>
-      <button onClick={() => addAsong()}>Add A Song</button>
+      <table>
+        <tbody>
+           <MusicTable parentEntries= {songs}/>
+        </tbody>   
+        <div>
+          <AddAsong addNewEntry={addNewEntry}/>
+        </div>
+        
+        
+      </table>
+
+    
+
+    
+      <button onClick={() => addNewEntry()}>Add A Song</button>
       
     
     </div>
