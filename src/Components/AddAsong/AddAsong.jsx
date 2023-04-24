@@ -20,7 +20,8 @@ const AddAsong = (props) => {
             genre: genre,
             release_date: release_date,
         };
-        console.log(newEntry);
+
+        console.log(newEntry)
         props.addNewEntry(newEntry)
     }
 
@@ -48,9 +49,13 @@ const AddAsong = (props) => {
                 <input type= 'date' className='form-control' value = {release_date} onChange={(event) => setReleaseDate(event.target.value)}/>
             </div>
 
-            <button type= 'submit'className='btn btn-primary' style={{'margin-top': '1em'}}>Add</button>
+            
+            <button type= 'submit'>Add A Song</button>
+
+
         </form>
       );
-}
- 
-export default AddAsong;
+    }
+    
+    export default AddAsong;
+    // <button type= 'submit'className='btn btn-primary' style={{'margin-top': '1em'}}>Add</button>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import MusicTable from './Components/MusicTable/MusicTable';
 import AddAsong from './Components/AddAsong/AddAsong';
+import SearchBar from './Components/SearchBar/SearchBar';
 
 
 function App() { 
@@ -11,7 +12,7 @@ function App() {
   useEffect(() => {
     getAllSongs();
     
-    {/*deleted console.log("Hello World!") */}
+    // {/*deleted console.log("Hello World!") */}
     
    
   },[]);
@@ -27,15 +28,18 @@ function App() {
   async function addNewEntry(newSong){
       let response = await axios.post('http://127.0.0.1:8000/api/music/', newSong);
       if (response.status === 201){
-        await addNewEntry()
+        console.log (response.data);
+        await getAllSongs()
+        
       }
-      console.log (response.data);
-      setSongs(response.data)
       
-  }
+  };
 
-  // async function SearchSongs(songs,)
-  // let FoundSong = songs.filter(song) => songs.includes()
+ function SearchMusic(songs){
+
+   let SearchBar = songs.filter(song => songs.includes())
+ }
+  
 
   
 
@@ -54,10 +58,8 @@ function App() {
         
       </table>
 
-    
-
-    
-      <button onClick={() => addNewEntry()}>Add A Song</button>
+      
+      {/* <button onClick={() => addNewEntry()}>Add A Song</button> */}
       
     
     </div>
