@@ -3,6 +3,8 @@ import axios from 'axios';
 import MusicTable from './Components/MusicTable/MusicTable';
 import AddAsong from './Components/AddAsong/AddAsong';
 import SearchBar from './Components/SearchBar/SearchBar';
+import './Apps.css';
+import './AddAsong.css';
 
 
 function App() { 
@@ -35,28 +37,33 @@ function App() {
       
   };
 
- function SearchMusic(songs){
+//  function SearchBar(songs){
+//    let results = songs.filter((el) => userInput === el.title);
 
-   let SearchBar = songs.filter(song => songs.includes())
- }
-  
-
-  
+//   console.log(results) 
+// }
 
 
-  return (
-    <div>
-      <button onClick={() => getAllSongs()}>Get All Songs</button>
+return (
+  <div className='container-fluid'>
+    <div className='row'> <h3 style={{margin: '1 rem'}}>Music Library</h3></div>
+    <div className='border-box'>
       <table>
         <tbody>
            <MusicTable parentEntries= {songs}/>
         </tbody>   
+      </table>
+    </div>
+
+      <button onClick={() => getAllSongs()}>Get All Songs</button>
         <div>
           <AddAsong addNewEntry={addNewEntry}/>
         </div>
+        <div>
+          {/* <SearchBar SearchBar={songs}/> */}
+        </div>
         
         
-      </table>
 
       
       {/* <button onClick={() => addNewEntry()}>Add A Song</button> */}
@@ -69,3 +76,9 @@ function App() {
 export default App;
 
 
+
+      //  let SearchMusic = songs.filter (el => {
+      //   if (songs.SearchMusic.includes(el.title)){
+      //     return true;
+      //   }
+      //  });
