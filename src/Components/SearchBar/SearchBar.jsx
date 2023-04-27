@@ -1,22 +1,22 @@
 // userInput goes into the search bar
 import React, { useState } from 'react';
 
-// const SearchBar = (props) => {
-//     const [title, setTitle] = useState (props.title.setTitle);
+const SearchBar = (props) => {
+    const [userInput, setUserInput] = useState('');
 
 
 
-    // return (
+    return (
 
-    //     <div>
-    //     <input type= 'string' className='form-control' value = {title} onChange={(event) => setTitle(event.target.value)}/>
-    //     </div>
+        <div>
+        <input type= 'string' className='form-control' value = {userInput} onChange={(event) => setUserInput(event.target.value)}/>
+        </div>
         
         
-    //     );
-    // }
+        );
+    }
     
-    // export default SearchBar;
+    export default SearchBar;
 
 
 

@@ -4,7 +4,7 @@ import MusicTable from './Components/MusicTable/MusicTable';
 import AddAsong from './Components/AddAsong/AddAsong';
 import SearchBar from './Components/SearchBar/SearchBar';
 import './Apps.css';
-import './AddAsong.css';
+import './Components/AddAsong/AddAsong.css';
 
 
 function App() { 
@@ -37,11 +37,11 @@ function App() {
       
   };
 
-//  function SearchBar(songs){
-//    let results = songs.filter((el) => userInput === el.title);
+ function searchMusic(userInput){
+   let results = songs.filter((entry) => userInput === entry.title);
 
-//   console.log(results) 
-// }
+  console.log(results) 
+}
 
 
 return (
@@ -56,11 +56,18 @@ return (
     </div>
 
       <button onClick={() => getAllSongs()}>Get All Songs</button>
-        <div>
+        <div className='container-fluid'>
+          <div className='row'> <h3 style={{margin:'1 rem'}}></h3></div>
+          <div className='border-box'>
+            <table>
+              <tbody>
           <AddAsong addNewEntry={addNewEntry}/>
+              </tbody>
+            </table>
+          </div>
         </div>
         <div>
-          {/* <SearchBar SearchBar={songs}/> */}
+          <SearchBar searchMusic={searchMusic}/>
         </div>
         
         
