@@ -26,21 +26,21 @@ function App() {
     console.log (response.data);
     setSongs(response.data)
   }
-
+  
   async function addNewEntry(newSong){
-      let response = await axios.post('http://127.0.0.1:8000/api/music/', newSong);
-      if (response.status === 201){
-        console.log (response.data);
-        await getAllSongs()
-        
-      }
+    let response = await axios.post('http://127.0.0.1:8000/api/music/', newSong);
+    if (response.status === 201){
+      console.log (response.data);
+      await getAllSongs()
       
+    }
+    
+    function searchMusic(userInput){
+      let results = songs.filter((el) => userInput === el.title);
+      
+       //This is the function Amy helpled me out with.
   };
 
- function searchMusic(userInput){
-   let results = songs.filter((entry) => userInput === entry.title);
-
-  console.log(results) 
 }
 
 
@@ -61,13 +61,23 @@ return (
           <div className='border-box'>
             <table>
               <tbody>
-          <AddAsong addNewEntry={addNewEntry}/>
+                <AddAsong addNewEntry={addNewEntry}/>
               </tbody>
             </table>
           </div>
         </div>
-        <div>
-          <SearchBar searchMusic={searchMusic}/>
+
+
+        <div className='container-fluid'>
+          <div className='row'> <h3 style={{margin:'1 rem'}}></h3></div>
+          <div className='border-box'></div>
+          {/* <button onClick={() => searchMusic()}>Search Music</button> */}
+          <table>
+            <tbody>
+              {/* <SearchBar searchMusic={searchMusic}/> */}
+
+            </tbody>
+          </table>
         </div>
         
         
@@ -84,8 +94,14 @@ export default App;
 
 
 
-      //  let SearchMusic = songs.filter (el => {
-      //   if (songs.SearchMusic.includes(el.title)){
-      //     return true;
-      //   }
-      //  });
+//  let SearchMusic = songs.filter (el => {
+  //   if (songs.SearchMusic.includes(el.title)){
+    //     return true;
+    //   }
+    //  });
+    
+    
+      //  function searchMusic(searchResults,songs){
+      //    let results = searchResults.filter(songs => key= {songs.id} songs ={songs});
+      
+      //   console.log(results) 

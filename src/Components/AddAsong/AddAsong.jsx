@@ -28,7 +28,7 @@ const AddAsong = (props) => {
 
     return (
         <form onSubmit={handleSubmit}className='form-grid'>
-            <div className='form-group'>
+            <div className='form-grid'>
                 <label>title</label>
                 <input type= 'string' className='form-control' value = {title} onChange={(event) => setTitle(event.target.value)}/>
             </div>
