@@ -2,21 +2,12 @@
 import React, { useState } from 'react';
 
 const SearchBar = (props) => {
-    const [userInput, setUserInput] = useState('');
+    const [userInput, setUserInput] = useState([]);
     
 
-    function handleSubmit(event,title) {
+    function handleSubmit(event) {
         event.preventDefault();
-        let searchEntry = {
-            title: title,
-            // album: album,
-            // artist: artist,
-            // genre: genre,
-            // release_date: release_date,
-        };
-
-        console.log(searchEntry)
-        props.searchMusic(searchEntry)
+        props.searchMusic()
     }
 
 
@@ -26,8 +17,9 @@ const SearchBar = (props) => {
         <form onSubmit={handleSubmit}className='form-grid'>
             <div className= 'search'>
                 <label>title</label>
-                <input type= 'text' className='form-control' value = {userInput} onChange={(event) => setUserInput(event.target.value)}/>
-                <button type= 'submit'className='btn btn-primary' style={{'margin-top': '1em'}}>Add</button>
+                <input type= 'text' placeholder='search music' value = {userInput} onChange={(event) => setUserInput(event.target.value)}/>
+                
+                <button type= 'submit'>Add</button>
 
             </div>
         </form>

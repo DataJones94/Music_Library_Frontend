@@ -36,10 +36,14 @@ function App() {
     }
     
     function searchMusic(userInput){
-      let results = songs.filter((el) => userInput === el.title);
-      
-       //This is the function Amy helpled me out with.
-  };
+      let results = songs.filter(el => {
+        return (el.title.includes(userInput)
+        );
+      });
+      console.log(searchMusic)
+      setSongs(results)
+     };
+
 
 }
 
@@ -67,15 +71,14 @@ return (
           </div>
         </div>
 
-
         <div className='container-fluid'>
           <div className='row'> <h3 style={{margin:'1 rem'}}></h3></div>
           <div className='border-box'></div>
-          {/* <button onClick={() => searchMusic()}>Search Music</button> */}
+          <button onClick={() => searchMusic()}>Search Music</button> 
+        
           <table>
             <tbody>
-              {/* <SearchBar searchMusic={searchMusic}/> */}
-
+              <SearchBar SearchBar={SearchBar}/>
             </tbody>
           </table>
         </div>
