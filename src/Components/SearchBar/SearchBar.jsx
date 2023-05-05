@@ -14,9 +14,17 @@ const SearchBar = (props) => {
 
     return (
 
-        <form onSubmit={handleSubmit}className='form-grid'>
+        <form onSubmit={handleSubmit}className='table'>
             <div className= 'search'>
                 <label>title</label>
+                <input type= 'text' placeholder='search music' value = {userInput} onChange={(event) => setUserInput(event.target.value)}/>
+                <label>artist</label>
+                <input type= 'text' placeholder='search music' value = {userInput} onChange={(event) => setUserInput(event.target.value)}/>
+                <label>album</label>
+                <input type= 'text' placeholder='search music' value = {userInput} onChange={(event) => setUserInput(event.target.value)}/>
+                <label>release_date</label>
+                <input type= 'text' placeholder='search music' value = {userInput} onChange={(event) => setUserInput(event.target.value)}/>
+                <label>genre</label>
                 <input type= 'text' placeholder='search music' value = {userInput} onChange={(event) => setUserInput(event.target.value)}/>
                 
                 <button type= 'submit'>Add</button>

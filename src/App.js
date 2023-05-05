@@ -35,18 +35,18 @@ function App() {
       
     }
     
-    function searchMusic(userInput){
-      let results = songs.filter(el => {
-        return (el.title.includes(userInput)
-        );
-      });
-      console.log(searchMusic)
-      setSongs(results)
-     };
-
-
-}
-
+    
+    
+  }
+  
+  function searchMusic(userInput){
+    let results = songs.filter(el => {
+      return (el.title.includes(userInput)
+      );
+    });
+    console.log(searchMusic)
+    setSongs(results)
+   };
 
 return (
   <div className='container-fluid'>
@@ -86,7 +86,7 @@ return (
         
 
       
-      {/* <button onClick={() => addNewEntry()}>Add A Song</button> */}
+      <button onClick={() => addNewEntry()}>Add A Song</button>
       
     
     </div>
