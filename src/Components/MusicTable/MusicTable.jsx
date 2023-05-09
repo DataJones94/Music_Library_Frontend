@@ -10,7 +10,6 @@ const MusicTable = (props) => {
             <th>artist</th>
             <th>genre</th>
             <th>release_date</th>
-
           </tr>
         </thead>
         <tbody>
